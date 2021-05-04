@@ -10,7 +10,7 @@ import java.util.*;
 	
 	public static void main(String[] args)
 	{
-		String tmp="";
+		String tmp=""; //костыль для возможности в качестве разделителя использовать .
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Введите количество панелей");
 		tmp=scanner.nextLine().replace(',','.');
