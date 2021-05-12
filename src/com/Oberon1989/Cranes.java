@@ -20,7 +20,7 @@ public class Cranes {
 пше
         double tmp = allСranes / CHILDREN_COUNT;
         katyaCount = tmp * FACTOR_X;
-        petyaCount = tmp / 2;
+        petyaCount = tmp / FACTOR_X;
         seregaCount = petyaCount;
 
         String result = String.format("Катя сделала %.2f журавликов, Петя сделал %.2f журавликов, Сережа сделал %.2f журавликов", katyaCount, petyaCount, seregaCount);
