@@ -9,10 +9,10 @@ public class Crow {
 
         int crow = scanner.nextInt();
         int tmp = crow;
-        int lasDigit = tmp % 10; //pDigit - предпоследняя цифра числа если есть.
+        int lasDigit = tmp % 10; //последняя цифра числа.
 
         tmp /= 10;
-        int pDigit = tmp % 10;
+        int pDigit = tmp % 10; // предпоследняя цифра числа если есть
 
         if (pDigit == 1) {
             lasDigit = 11; // если все верно ставим 11 что бы перейти в default
