@@ -14,6 +14,8 @@ public class guessTheNumber {
         int compNumber = 0;
         int userNumber = 0;
         int numberOfAttempts = 0;
+        int tmpMin=0;
+        int tmpMax=0;
         boolean isSuccess = false;
         String result = "";
 
@@ -37,35 +39,41 @@ public class guessTheNumber {
                     break;
 
                 case 4:
-                    System.out.println("Введите границы диапазона");
+                    System.out.println("Введите  границы диапазона! Числа должны быть больше нуля");
                     rangeMin = scanner.nextInt();
                     rangeMax = scanner.nextInt();
 
-                    if (rangeMin < 0 || rangeMax < 2) {
+
+                    if(rangeMin<1||rangeMax<2)
+                    {
                         throw new Exception();
-
-                    } else {
-
-                        compNumber = random.nextInt(rangeMax - rangeMin + 1) + rangeMin;
                     }
+                        compNumber = random.nextInt(rangeMax - rangeMin + 1) + rangeMin;
+                        scanner=new Scanner(System.in);
+
                     break;
             }
 
         } catch (Exception e) {
             System.out.println("Неверный выбор уровня сложности! Выбран средний уровень...");
+            rangeMin=1;
             rangeMax = 100;
             compNumber = random.nextInt(100) + 1;
             scanner = new Scanner(System.in);
         }
 
+        tmpMin=rangeMin;
+        tmpMax=rangeMax;
         System.out.printf("Введите число от %s до %s \n ", rangeMin, rangeMax);
 
         do {
             try {
                 userNumber = scanner.nextInt();
+                if(userNumber<rangeMin||userNumber>rangeMax)throw new Exception("Вне диапазона!");
 
             } catch (Exception e) {
-                System.out.printf("Необходимо ввести число от %s до %s\n", rangeMin, rangeMax);
+                System.out.printf("%s Необходимо ввести число от %s до %s\n", e.getMessage(),rangeMin, rangeMax);
+                continue;
 
             }
 
@@ -75,10 +83,14 @@ public class guessTheNumber {
                 result = String.format("Вы угадали число %s\nКоличество попыток : %s\n Оценка ", compNumber, numberOfAttempts);
                 isSuccess = true;
             } else if (userNumber > compNumber) {
-                System.out.printf("Неверное! Мое число меньше. Попробуйте от %S до %s\n", rangeMin, userNumber - 1);
+                System.out.printf("Неверно! Мое число меньше. Попробуйте от %S до %s\n", tmpMin, userNumber - 1);
+                tmpMax=userNumber-1;
+
             } else if (userNumber < compNumber) {
-                System.out.printf("Неверное! Мое число больше. Попробуйте от %S до %s\n", userNumber + 1, rangeMax);
+                System.out.printf("Неверно! Мое число больше. Попробуйте от %S до %s\n", userNumber + 1, tmpMax);
+                tmpMin=userNumber+1;
             }
+
         }
         while (!isSuccess);
 
