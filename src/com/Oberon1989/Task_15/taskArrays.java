@@ -48,8 +48,8 @@ public class taskArrays {
         int y = 6;
         Random rnd = new Random();
         final int SECOND_COLUMN = 2;
-        //int m = rnd.nextInt(y-1) + 1;
-        int m = 3;
+        int m = rnd.nextInt(y-1) + 1;
+       
         int[][] arr = array2dFill(x, y, 50, 100);
         System.out.println(array2dPrint(arr, "Ваш массив"));
         System.out.println(SECOND_COLUMN + " столбец");
