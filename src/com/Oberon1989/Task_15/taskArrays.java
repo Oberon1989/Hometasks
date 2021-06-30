@@ -13,7 +13,7 @@ public class taskArrays {
     }
 
     static void task_12_5() {
-        int x = 6;
+        int x = 61;
         int y = 6;
         final int FIVE = 5;
         Random rnd = new Random();
@@ -49,7 +49,7 @@ public class taskArrays {
         Random rnd = new Random();
         final int SECOND_COLUMN = 2;
         int m = rnd.nextInt(y-1) + 1;
-       
+
         int[][] arr = array2dFill(x, y, 50, 100);
         System.out.println(array2dPrint(arr, "Ваш массив"));
         System.out.println(SECOND_COLUMN + " столбец");
