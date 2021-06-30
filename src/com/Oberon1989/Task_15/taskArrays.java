@@ -13,11 +13,11 @@ public class taskArrays {
     }
 
     static void task_12_5() {
-        int x = 61;
+        int x = 6;
         int y = 6;
         final int FIVE = 5;
         Random rnd = new Random();
-        int sColumn = rnd.nextInt(x-1) + 1;
+        int sColumn = rnd.nextInt(x - 1) + 1;
         int[][] arr = array2dFill(x, y, 50, 100);
 
         System.out.println(array2dPrint(arr, "Ваш массив"));
@@ -48,7 +48,7 @@ public class taskArrays {
         int y = 6;
         Random rnd = new Random();
         final int SECOND_COLUMN = 2;
-        int m = rnd.nextInt(y-1) + 1;
+        int m = rnd.nextInt(y - 1) + 1;
 
         int[][] arr = array2dFill(x, y, 50, 100);
         System.out.println(array2dPrint(arr, "Ваш массив"));
@@ -218,12 +218,13 @@ public class taskArrays {
 
     static String array2dPrint(int[][] arr, String str) {
         int x = arr.length;
+        int y;
         StringBuilder builder = new StringBuilder();
         System.out.println(str);
 
         for (int i = 0; i < x; i++) {
-
-            for (int j = 0; j < arr[i].length; j++) {
+            y = arr[i].length;
+            for (int j = 0; j < y; j++) {
                 builder.append(String.format("%-5d", arr[i][j]));
             }
 
