@@ -4,15 +4,15 @@ import java.util.Objects;
 import java.util.UUID;
 
 public class Lamp {
-    String id;
-    boolean isEnabled;
-    float brightness;
-    String color;
+    private String id;
+    private boolean isEnabled;
+    private float brightness;
+    private String color;
 
     public Lamp() {
         this.id = UUID.randomUUID().toString();
         this.color = Colors.WHITE.getValue();
-        this.brightness = 75;
+        this.brightness = 10;
         isEnabled = false;
     }
 
@@ -50,8 +50,11 @@ public class Lamp {
     public void setBrightness(float brightness) {
         if (brightness <= 100 & brightness > 0) {
             this.brightness = brightness;
+        } else {
+            System.out.println("Яркость лампы не может быть меньше 1% и больше 100%");
         }
     }
+
 
     public String getColor() {
         return color;
@@ -59,6 +62,22 @@ public class Lamp {
 
     public void setColor(Lamp.Colors color) {
         this.color = color.value;
+    }
+
+    public void increaseBrightness(float value) {
+        if (this.brightness + value <= 100) {
+            this.brightness += value;
+        } else {
+            System.out.println("Яркость лампы не может быть меньше 1% и больше 100%");
+        }
+    }
+
+    public void decreaseBrightness(float value) {
+        if (this.brightness + value > 0) {
+            this.brightness += value;
+        } else {
+            System.out.println("Яркость лампы не может быть меньше 1% и больше 100%");
+        }
     }
 
 
